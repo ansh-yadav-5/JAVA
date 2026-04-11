@@ -1,24 +1,25 @@
  class CirlceWithStaticMembers{
 	double radius;
-	Static int numberOfObjects = 0
+	int numberOfObjects = 0;
 
-	CircleWithStaticMembers(){
+	void CircleWithStaticMembers(){
 		radius = 1;
 		numberOfObjects++;
 
 }	
-	CircleWithStaticMembors(double newRadius){
+	void CircleWithStaticMembors(double newRadius){
 		radius = newRadius;
+		int numberOfObjets = 0;
 		numberOfObjets++;
 }
 	static int getNumberOfObjects(){
-		return numberOFObjects;
+		return getNumberOfObjects();
 	}
 	double getArea(){
 		return radius*radius*Math.PI;
 	}
 }
-	public class TestCircleWithStaticMembers{
+	public class TestCirlceWithStaticMembers{
 		public static void man(String[]args){
 	System.out.println(" Before creating objects");
 	System.out.println(" the number of circle objects is" + CircleWithStaticMembers.numbersOfObjects);
@@ -26,7 +27,7 @@
 	CircleWithStaticMembers C1 = new CircleWithStaticMembers();
 
 	System.out.println(" \n after creating c1");
-	System.out.println("c1: radius (" + C1.radius (" + C1.radius + ") and number of circle objects (" + C1.numberOfObjects +")");
+	System.out.println("c1: radius (" + C1.radius " (" + C1.radius + ") and number of circle objects (" + C1.numberOfObjects +")");
 
 	CircleWithStaticMembers C2 = new CircleWithStaticMembers(5);
 	C1.radius = 9;
