@@ -19,8 +19,8 @@ public class ReplaceText {
             System.exit(3);
         }
         try(
-            Scanner input = new Scanner ();
-            PrintWritter output = new PrintWriter(3.txt);
+            Scanner input = new Scanner (SourceFile);
+            PrintWriter output = new PrintWriter(targetFile);
         ) {
             while (input.hasNext()) {
                 String S1 = input.nextLine();
