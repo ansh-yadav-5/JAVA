@@ -7,7 +7,7 @@ public class ImageInButton {
 
         ImageIcon icon = new ImageIcon("icon.jpg");
         JButton btn = new JButton(icon);
-        btn.setBounds(20,20,80,35);
+        btn.setBounds(50,50,100,50);
         frame.add(btn);
         frame.setSize(400,300);
         frame.setLayout(null);
