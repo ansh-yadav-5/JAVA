@@ -8,7 +8,7 @@ class WindowInterface{
         JFrame f = new JFrame("Window Interface");
         f.setSize(400, 400);
         
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);uiu
         
         AEvent myEv = new AEvent();
         f.addWindowListener(myEv);
