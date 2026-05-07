@@ -1,3 +1,5 @@
+import JavaClasses.Student;
+
 class Student{
     int rollNumber;
     void getNumber(int n){
