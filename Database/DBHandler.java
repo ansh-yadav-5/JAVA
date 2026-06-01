@@ -37,10 +37,10 @@ public class DBHandler implements DBAttributes{
             + e); 
         } 
     }
-     public void add(int studentid, String sname, String course, String mobno){ 
+     public void add(String stuID, String sname, String course, String mobno){ 
         try{ 
             pstmt = conn.prepareStatement("insert into students (studentid, sname, course, mobno) values (?,?,?,?)"); 
-            pstmt.setInt(1, studentid); 
+            pstmt.setString(1, stuID); 
             pstmt.setString(2, sname); 
             pstmt.setString(3, course); 
             pstmt.setString(4, mobno); 
