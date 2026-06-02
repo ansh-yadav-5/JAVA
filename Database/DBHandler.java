@@ -84,12 +84,12 @@ public class DBHandler implements DBAttributes{
         }
     }
 
-    public void updateRecord(int studentid, String sname, String course){
+    public void updateRecord(String studentid, String sname, String course){
         try {
             pstmt = conn.prepareStatement("update students set sname = ?,course = ? where studentid = ?");
             pstmt.setString(1, sname);
             pstmt.setString(2, course);
-            pstmt.setInt(3, studentid);
+            pstmt.setString(3, studentid);
             pstmt.executeUpdate();
             System.out.println("\nUpdate successfully");
         } catch (Exception e) {
@@ -97,10 +97,10 @@ public class DBHandler implements DBAttributes{
         }
     }
 
-    public void deleteRecord(int studentid){
+    public void deleteRecord(String studentid){
         try {
             pstmt = conn.prepareStatement("delete from students where studentid = ?");
-            pstmt.setInt(1, studentid);
+            pstmt.setString(1, studentid);
             pstmt.executeUpdate();
             System.out.println("\nDelete successfully");
         } catch (Exception e) {

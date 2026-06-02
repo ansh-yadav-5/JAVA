@@ -4,26 +4,15 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.*;
 
-public class SwingJdbc implements ActionListener {
+public class SwingJdbc  {
 
     
     JTextField tf1,tf2,tf3,tf4;
-    public void actionPerformed(ActionEvent e){
-        String stuID = tf1.getText();
-        String sname = tf2.getText();
-        String course = tf3.getText();
-        String mobno = tf4.getText();
-
-        DBHandler db = new DBHandler();
-        db.add(stuID, sname, course, mobno);
-
-        // System.out.println("The student id is " + stuID);
-        // System.out.println("the Student name is " + sname);
-        // System.out.println("The course is " + course);
-        // System.out.println("the mobile no is " + mobno);
-
-
-    }
+    String stuID = tf1.getText();
+    String sname = tf2.getText();
+    String course = tf3.getText();
+    String mobno = tf4.getText();
+    
 
      public SwingJdbc() {
         JFrame frame = new JFrame("Jdbc");
@@ -33,6 +22,8 @@ public class SwingJdbc implements ActionListener {
         JLabel lbl3 = new JLabel(" Course : ");
         JLabel lbl4 = new JLabel(" MobNo : "); 
         JButton btn = new JButton("Submit  ");
+        JButton btn2 = new JButton(" Delete ");
+        JButton btn3 = new JButton(" Update ");
         
         tf1 = new JTextField("  ");
         tf1.setBounds(100,50,200,30);
@@ -48,11 +39,15 @@ public class SwingJdbc implements ActionListener {
         frame.add(tf4);
         
         btn.setBounds(100, 500, 100, 30);
+        btn2.setBounds(100, 550, 100, 30);
+        btn3.setBounds(100,600,100,30);
         lbl1.setBounds(10,50,80,30);
         lbl2.setBounds(10, 100, 80, 30);
         lbl3.setBounds(10, 150, 80, 30);
         lbl4.setBounds(10, 200, 80, 30);
         frame.add(btn);
+        frame.add(btn2);
+        frame.add(btn3);
         frame.add(lbl1);
         frame.add(lbl2);
         frame.add(lbl3);
@@ -62,7 +57,36 @@ public class SwingJdbc implements ActionListener {
         frame.setLayout(null);
         frame.setVisible(true);
 
-        btn.addActionListener(this);
+        AddHandlerclass handler1 = new AddHandlerclass();
+        btn.addActionListener(handler1);
+        DeleteHandlerclass handler2 = new DeleteHandlerclass();
+        btn2.addActionListener(handler2);
+        UpdateHandlerclass handler3 = new UpdateHandlerclass();
+        btn3.addActionListener(handler3);
+    }
+
+    class AddHandlerclass implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e){
+            DBHandler db = new DBHandler();
+            db.add(stuID, sname, course, mobno);
+        }
+    }
+
+    class DeleteHandlerclass implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e){
+            DBHandler db = new DBHandler();
+            db.deleteRecord(stuID);
+        }
+    }
+
+    class UpdateHandlerclass implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e){
+            DBHandler db = new DBHandler();
+            db.updateRecord(stuID, sname, course);
+        }
     }
 
     
