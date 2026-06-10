@@ -6,12 +6,10 @@ import java.awt.event.*;
 
 public class SwingJdbc  {
 
+
     
     JTextField tf1,tf2,tf3,tf4;
-    String stuID = tf1.getText();
-    String sname = tf2.getText();
-    String course = tf3.getText();
-    String mobno = tf4.getText();
+    
     
 
      public SwingJdbc() {
@@ -68,6 +66,10 @@ public class SwingJdbc  {
     class AddHandlerclass implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e){
+            String stuID = tf1.getText();
+            String sname = tf2.getText();
+            String course = tf3.getText();
+            String mobno = tf4.getText();
             DBHandler db = new DBHandler();
             db.add(stuID, sname, course, mobno);
         }
@@ -76,6 +78,8 @@ public class SwingJdbc  {
     class DeleteHandlerclass implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e){
+            String stuID = tf1.getText();
+            
             DBHandler db = new DBHandler();
             db.deleteRecord(stuID);
         }
@@ -84,6 +88,10 @@ public class SwingJdbc  {
     class UpdateHandlerclass implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e){
+            String stuID = tf1.getText();
+            String sname = tf2.getText();
+            String course = tf3.getText();
+            
             DBHandler db = new DBHandler();
             db.updateRecord(stuID, sname, course);
         }
