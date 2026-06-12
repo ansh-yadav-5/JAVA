@@ -5,7 +5,7 @@ public class TestRowBatchUpdate {
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/studentdb" , "root", "3012");
             Statement stmt = conn.createStatement();
-            stmt.addBatch("create table t1(id int primary key, name varchar(20)");
+            stmt.addBatch("create table t1(id int primary key, name varchar(20))");
             stmt.addBatch("insert into t1 values(115, 'Ankit')");
             stmt.addBatch("insert into t1 values(116, 'Shivam')");
             stmt.addBatch("insert into t1 values(117, 'Himanshu')");
